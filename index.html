@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html id="ng-app">
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Twitter Integration Project</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="tip">
+        <div class="container">
+            <nav class="navbar navbar-default navbar-static-top" data-ng-controller="NavController">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                   <span class="sr-only">Toggle navigation</span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                 </button>
+                        <a class="navbar-brand" ui-sref="tweets">Twitter Integration Project</a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li ng-class="{active: isTweetActive}"><a ui-sref="tweets">Tweets</a></li>
+                            <li ng-class="{active: isLayoutActive}"><a ui-sref="layout.edit">Layout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="row" style="margin-top:10px;">
+                <div class="col-md-12">
+                    <div ui-view></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/js/lib/jquery.min.js"></script>
+<script src="/js/lib/jquery-ui.min.js"></script>
+<script src="/js/lib/require.js"></script>
+<script src="/js/lib/angular.min.js"></script>
+<script src="/js/lib/angular-resource.min.js"></script>
+<script src="/js/lib/bootstrap.min.js"></script>
+<script src="/js/lib/angular-ui-router.min.js"></script>
+<script src="/js/lib/ui-bootstrap-tpls.min.js"></script>
+<script src="/js/lib/sortable.min.js"></script>
+<script src="/js/lib/moment.js"></script>
+<script src="/js/lib/angular-local-storage.min.js"></script>
+<script src="/js/lib/socket.io.min.js"></script>
+<script src="/js/lib/oauth-1.0a.js"></script>
+
+<script src="js/app/Tip.App.js"></script>
+<script src="js/app/Tip.Services.js"></script>
+<script src="js/app/Tip.Controllers.js"></script>
+<script src="js/app/Tip.Directives.js"></script>
+<script src="js/app/Tip.Filters.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        var div = document.getElementById("tip");
+        if (div) {
+            angular.bootstrap(div, ['tip']);
+        }
+    });
+</script>
+
+</html>

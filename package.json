@@ -1,0 +1,33 @@
+{
+  "name": "Twitter Integration Project",
+  "version": "1.0.0",
+  "main": "server.js",
+  "dependencies": {
+    "connect": "^3.3.2",
+    "serve-static": "^1.7.1",
+    "gulp": "3.9.0",
+    "gulp-flatten" : "*",
+    "twitter-node-client": "0.0.6",
+    "requirejs" : "*",
+    "socket.io":"0.9.16",
+    "oauth-1.0a": "0.2.1"
+  },
+  "devDependencies": {
+    "bower": "1.4.1"
+    },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall" : "npm-post-install.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AravindVenkataraman/App-Direct-Coding-Challenge-1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AravindVenkataraman/App-Direct-Coding-Challenge-1/issues"
+  },
+  "homepage": "https://github.com/AravindVenkataraman/App-Direct-Coding-Challenge-1#readme",
+  "description": "App Direct Coding Challenge"
+}

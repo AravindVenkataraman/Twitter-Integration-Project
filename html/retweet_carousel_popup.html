@@ -1,0 +1,24 @@
+<style type="text/css">
+    img {
+        height: auto;
+        width: 450px;
+    }
+</style>
+<div class="modal-header">
+    <p><h3 class="modal-title" ng-hide="retweets == null">Retweeted {{retweets.length}} times</h3><button type="button" class="btn btn-default navbar-btn pull-right" ng-click="closeMe()">Close</button></p>
+    <p ng-show="retweets[0].retweet_count != retweets.length">{{retweets[0].retweet_count - retweets.length}} users have asked not to be shown in this view</p>
+    <p ng-show="retweets == null" style="color:red;">Loading...</p>
+</div>
+<div class="modal-body">
+    <div style="height: 205px">
+        <carousel interval="myInterval">
+            <slide ng-repeat="tweet in retweets" active="slide.active">
+                <img ng-src="{{tweet.user.profile_image_url}}" style="margin:auto;">
+                <div class="carousel-caption">
+                    <p>
+                        <label>{{tweet.user.name}}</label> <i>@{{tweet.user.screen_name}}</i></p>
+                </div>
+            </slide>
+        </carousel>
+    </div>
+</div>

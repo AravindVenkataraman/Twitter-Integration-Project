@@ -1,0 +1,94 @@
+<style type="text/css">
+    .item {
+        padding: 5px 10px;
+        margin: 5px 0;
+        border: 2px solid #444;
+        border-radius: 5px;
+        background-color: #red;
+        font-size: 1.1em;
+        font-weight: bold;
+        text-align: center;
+        cursor: move;
+    }
+    
+    .list {
+        list-style: none outside none;
+        margin: 10px 0 30px;
+    }
+</style>
+<div ng-init="layoutEditCtrl.onInit()">
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading clearfix">
+            <h4 class="panel-title pull-left" style="padding-top: 7.5px;"><label>Layout - Edit</label></h4>
+            <div class="btn-group pull-right">
+                <a ng-click="layoutEditCtrl.save()" class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-ok"></span> Save
+                </a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <p>Click
+                <label>Save</label> to save the changes. </p>
+            <p>Click <span class="glyphicon glyphicon-arrow-up"></span> <span class="glyphicon glyphicon-arrow-down"></span> or drag and drop to change the order.</p>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <ul ui-sortable ng-model="layoutEditCtrl.settings.screens" class="list">
+                        <li ng-repeat="item in layoutEditCtrl.settings.screens" class="item">
+                            <div class="row">
+                                <div class="col-md-9">{{item.screen_name}}</div>
+                                <div class="col-md-3 pull-right">
+                                    <span style="cursor:pointer;" class="glyphicon glyphicon-arrow-up" ng-click="layoutEditCtrl.moveUp($index)" ng-show="$index > 0"></span>
+                                    <span style="cursor:pointer;" class="glyphicon glyphicon-arrow-down" ng-click="layoutEditCtrl.moveDown($index)" ng-show="($index + 1) < layoutEditCtrl.settings.screens.length"></span>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:20px;">
+                                <div class="col-md-3">Tweet #: </div>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" ng-model="item.count" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">Since: </div>
+                                <div class="col-md-9">
+                                    <p class="input-group">
+                                        <input type="text" class="form-control" datepicker-popup="{{layoutEditCtrl.format}}" ng-model="item.since" is-open="layoutEditCtrl.calendar_since_open[$index]" datepicker-options="layoutEditCtrl.dateOptions" close-text="Close" show-button-bar="false" max-date="layoutEditCtrl.date_since_max"/>
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default" ng-click="layoutEditCtrl.open($event, $index, 1)">
+                                                <i class="glyphicon glyphicon-calendar"></i>
+                                            </button>
+                                      </span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">Until: </div>
+                                <div class="col-md-9">
+                                    <p class="input-group">
+                                        <input type="text" class="form-control" datepicker-popup="{{layoutEditCtrl.format}}" ng-model="item.untill" is-open="layoutEditCtrl.calendar_untill_open[$index]" datepicker-options="layoutEditCtrl.dateOptions" close-text="Close" max-date="layoutEditCtrl.date_until_max" show-button-bar="false" />
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default" ng-click="layoutEditCtrl.open($event, $index, 2)">
+                                                <i class="glyphicon glyphicon-calendar"></i>
+                                            </button>
+                                      </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-offset-2 col-md-4">
+                    <label><u>ReTweet Layout</u></label>
+                    <p>
+                        <input type="radio" name="retweet" data-ng-model="layoutEditCtrl.settings.retweets_view" value="1" /> List
+                        <br/>
+                        <input type="radio" name="retweet" data-ng-model="layoutEditCtrl.settings.retweets_view" value="2" /> Slides
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

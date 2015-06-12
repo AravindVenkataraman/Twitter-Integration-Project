@@ -1,0 +1,27 @@
+<style type="text/css">
+    .modal-dialog {
+        overflow: visible;
+        min-height: 100%!important;
+    }
+</style>
+<div class="modal-header">
+    <p><h3 class="modal-title" ng-hide="retweets == null">Retweeted {{retweets.length}} times</h3><button type="button" class="btn btn-default navbar-btn pull-right" ng-click="closeMe()">Close</button></p>
+    <p ng-show="retweets[0].retweet_count != retweets.length">{{retweets[0].retweet_count - retweets.length}} users have asked not to be shown in this view</p>
+    <p ng-show="retweets == null" style="color:red;">Loading...</p>
+</div>
+<div class="modal-body">
+    <table class="table">
+        <tbody>
+            <tr ng-repeat="tweet in retweets">
+                <td>
+                    <p>
+                        <img src="{{tweet.user.profile_image_url}}" />
+                    </p>
+                    <p>
+                        <label>{{tweet.user.name}}</label> <i>@{{tweet.user.screen_name}}</i></p>
+                    <p>{{tweet.user.description}}</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
