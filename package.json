@@ -21,13 +21,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AravindVenkataraman/App-Direct-Coding-Challenge-1.git"
+    "url": "git+https://github.com/AravindVenkataraman/Twitter-Integration-Project.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AravindVenkataraman/App-Direct-Coding-Challenge-1/issues"
+    "url": "https://github.com/AravindVenkataraman/Twitter-Integration-Project/issues"
   },
-  "homepage": "https://github.com/AravindVenkataraman/App-Direct-Coding-Challenge-1#readme",
+  "homepage": "https://github.com/AravindVenkataraman/Twitter-Integration-Project#readme",
   "description": "App Direct Coding Challenge"
 }
