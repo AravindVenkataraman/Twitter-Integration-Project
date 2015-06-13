@@ -1,5 +1,5 @@
 {
-  "name": "Twitter Integration Project",
+  "name": "Twitter-Integration-Project",
   "version": "1.0.0",
   "main": "server.js",
   "dependencies": {
